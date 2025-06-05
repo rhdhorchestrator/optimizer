@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: optimizer
+spec:
+  containers:
+  - image: quay.io/ydayagi/optimizer
+    name: optimizer
+    env:
+      - name: OPTIMIZER_CM_NAME
+        value: app-config
+      - name: OPTIMIZER_CM_NAMESPACE
+        value: optimizer
