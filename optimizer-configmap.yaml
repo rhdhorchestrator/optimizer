@@ -1,0 +1,16 @@
+apiVersion: v1
+data:
+  pollIntervalSeconds: "30"
+  clientSecret: ""
+  clientId: ""
+  redhatRecommendationsUrl: "https://console.redhat.com/api/cost-management/v1/recommendations/openshift"
+  redhatTokenUrl: "https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/token"
+  workflowUrl: "http://patch-k8s-resource.sonataflow-infra:8080/patch-k8s-resource"
+  #workflowUrl: "http://localhost:8080"
+  clusterName: "cluster73"
+  term: "short_term"
+  authenticate: "true"
+
+kind: ConfigMap
+metadata:
+  name: app-config
