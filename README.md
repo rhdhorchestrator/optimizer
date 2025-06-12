@@ -7,14 +7,14 @@ The flow is quite simple:
 - Read configuration from ConfigMap 
 - fetch recommendations from RedHat Insights 
 - look for performance recommendations 
-- filter based on cluster names, terms etc 
+- filter recommendations
 - Call the OSL workflow for patching the OCP workload
 Optimizer is written in Java and uses Maven as a build infrastructure. Logging is done with log4j2
 
 ## Configuration and setup
 
 The application uses a Kubernetes client for reading its configuration. Either deploy it in a cluster or make sure to configure the client (~/.kube/config file, KUBECONFIG env var etc).  
-The namespace and name of the configMap containing application configuration is configured via env vars: OPTIMIZER_CM_NAMESPACE, OPTIMIZER_CM_NAME. The class Config is a reflection of the ConfigMap. There's a sample ConfigMap YAML file: optimizer-configmap.yaml.  
+The namespace and name of the configMap containing application configuration is configured via env vars: OPTIMIZER_CM_NAMESPACE, OPTIMIZER_CM_NAME. The class Config is a reflection of the ConfigMap. There's a sample ConfigMap YAML file: optimizer-configmap.yaml. The service account that will be used by the application needs access to list ConfigMaps. Either add the required permissions to the default service account in the namespace or specify the desired service account in the optimizer-deployment.yaml. See [K8S docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/).  
 Logging is configured in log4j2.xml file or the ConfigMap that contains it.
 
 ## Building the application
@@ -26,7 +26,7 @@ The file optimizer.dockerfile can be used to build a container image.
 
 ### Create configuration
 
-Create a ConfigMap containing the configuration. Use optimizer-configmap.yaml as an example. Create a service account with permissions to list ConfigMaps.
+Create a ConfigMap containing the configuration. Use optimizer-configmap.yaml as an example.
 
 ### Outside a cluster
 
