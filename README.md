@@ -13,6 +13,8 @@ Optimizer is written in Java and uses Maven as a build infrastructure. Logging i
 
 ## Configuration and setup
 
+
+It is highly recommended that the Optimizer will be deployed in the same namespace as OSL. Otherwise, you might need to configure more things such as network policies and such.  
 The application uses a Kubernetes client for reading its configuration. Either deploy it in a cluster or make sure to configure the client (~/.kube/config file, KUBECONFIG env var etc).  
 The namespace and name of the configMap containing application configuration is configured via env vars: OPTIMIZER_CM_NAMESPACE, OPTIMIZER_CM_NAME. The class Config is a reflection of the ConfigMap. There's a sample ConfigMap YAML file: optimizer-configmap.yaml. The service account that will be used by the application needs access to list ConfigMaps. Either add the required permissions to the default service account in the namespace or specify the desired service account in the optimizer-deployment.yaml. See [K8S docs](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/).  
 Logging is configured in log4j2.xml file or the ConfigMap that contains it.
