@@ -123,7 +123,7 @@ public class OptimizerTask extends TimerTask {
             JsonNode node = iterator.next();
             ContainerRecommendation r = new ContainerRecommendation();
             r.cluster_alias = node.get("cluster_alias").asText();
-            if (config.clusterName != null && config.clusterName.compareTo(r.cluster_alias) != 0) {
+            if (config.clusterNames.size() > 0 && !config.clusterNames.contains(r.cluster_alias)) {
                 continue;
             }
             r.cluster_uuid = node.get("cluster_uuid").asText();

@@ -1,5 +1,8 @@
 package optimizer;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Config {
     /**
      * How often to fetch recommendations
@@ -20,8 +23,8 @@ public class Config {
      */
     public String workflowUrl;
     /**
-     * Optional. If empty then we read all recommendations and apply them to the single cluster we have access to. Otherwise, fetch only recommendations for this cluster     */
-    public String clusterName;
+     * Optional. If empty then we read all recommendations and apply them. Otherwise, fetch only recommendations for the clusters in the list     */
+    public List<String> clusterNames = new LinkedList<>();
     /**
      * short_term | medium_term | long_term
      */
