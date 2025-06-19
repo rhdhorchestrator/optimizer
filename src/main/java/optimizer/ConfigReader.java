@@ -1,5 +1,6 @@
 package optimizer;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import io.kubernetes.client.openapi.ApiClient;
@@ -32,7 +33,10 @@ public class ConfigReader {
             config.clientSecret = appConfigData.get("clientSecret");
             config.pollIntervalSeconds = Long.parseLong(appConfigData.get("pollIntervalSeconds"));
             config.workflowUrl = appConfigData.get("workflowUrl");
-            config.clusterName = appConfigData.get("clusterName");
+            String clusterNames = appConfigData.get("clusterName");
+            if (clusterNames != null && !clusterNames.isEmpty()) {
+                config.clusterNames = Arrays.asList(clusterNames.split(","));
+            }
             config.term = appConfigData.get("term");
         } catch (ApiException e) {
             logger.error(String.format("Code: %d. Body: %s",e.getCode(), e.getResponseBody()));
