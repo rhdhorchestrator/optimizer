@@ -34,7 +34,7 @@ public class OptimizerTask extends TimerTask {
     public void run() {
         try {
             logger.info("started OptimizerTask");
-            // get token for accessing RedHat Insights
+            // get token for accessing RedHat Lightspeed
             logger.info("creating token");
             String token = getToken();
             // fetch recommendations

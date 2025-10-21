@@ -2,10 +2,10 @@
 
 ## Overview
 
-Optimizer is an application that helps us to apply RedHat Insights performance recommendations for OCP (OpenShift cluster platform). It makes use of OSL (OpenShift Serverless Logic, a.k.a. SonataFlow). We deploy a workflow that is responsible for the actual optimization of the OCP workloads. The application is meant to be used with OCP clusters. That means that it should be deployed within a cluster or configured with cluster access details.  
+Optimizer is an application that helps us to apply RedHat Lightspeed performance recommendations for OCP (OpenShift cluster platform). It makes use of OSL (OpenShift Serverless Logic, a.k.a. SonataFlow). We deploy a workflow that is responsible for the actual optimization of the OCP workloads. The application is meant to be used with OCP clusters. That means that it should be deployed within a cluster or configured with cluster access details.  
 The flow is quite simple:
 - Read configuration from ConfigMap 
-- fetch recommendations from RedHat Insights 
+- fetch recommendations from RedHat Lightspeed 
 - look for performance recommendations 
 - filter recommendations
 - Call the OSL workflow for patching the OCP workload
