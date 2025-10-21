@@ -9,7 +9,7 @@ public class Config {
      */
     public long pollIntervalSeconds;
     /**
-     * credentials for accessing RedHat Insights information
+     * credentials for accessing RedHat Lightspeed information
      */
     public String clientId;
     public String clientSecret;
